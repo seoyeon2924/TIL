@@ -121,3 +121,51 @@ class MemberServiceTest {
   ....중략......
 }
 ```
+
+---
+
+#스프링 빈
+
+@Controller @Service @Repository
+스프링 컨테이너에서 스프링 빈이 관라된다
+
+##스프링 빈 등록하는 두 가지 방법
+
+1. 컴포넌트 스캔과 자동의존관계 설정 -> 스프링이 딱 뜰 때 스프링 컨테이너에 @Component를 스캔해서 빈을 등록하는 거고 그때 @Autowired가 연결을 해주는 역할.
+   @Service 안에 @Component가 되어있음. 즉 서비스는 서비스 역할에 특화된 Component
+   package hello.hellospring를 포함한 하위 패키지의 @Component들을 등록함.
+
+- 참고 : 스프링은 스프링 컨테이너에 스프링 빈을 등록할 때, 기본으로 싱글톤으로 등록한다. 따라서 같은 스프링 빈이면 같은 인스턴스이다.
+  설정으로 싱글톤이 아니게 할수 는 있지만 대부분의 경우는 싱글톤을 이용한다.
+
+2. 자바코드로 직접 스프링 빈 등록하기  
+   @Configuration을 통해서 설정하는 방법
+   서비스의 @Service와 레포지토리의 @Repository 지우고 @Autowired도 삭제한 상태에서 하기와 같이 SpringConfig.class 작성
+   -> @Bean을 통해 스프링빈으로 등록
+   -> 서비스에 생성자에 MemberRepository를 주입함으로써 의존관계 주입 설정이 됨
+
+```java
+@Configuration
+public class SpringConfig {
+
+  @Bean
+  public MemberService memberService() {
+    return new MemberService( memberRepository());
+  }
+
+  @Bean
+  public MemberRepository memberRepository() {
+    return new MemoryMemberRepository();
+  }
+}
+```
+
+```
+실무에서는 주로 정형화된 컨트롤러, 서비스, 리포지토리 같은 코드는 컴포넌트 스캔을 사용한다.
+정형화 되지 않거나 상황에 따라 구현 클래스를 변경해야 하면 설정을 통해 스프링 빈으로 등록한다
+```
+
+##@Autowired 3가지
+@Autowired 는 **필드주입방법이 있고 생성자 주입 방법, Setter주입**이 있는데 권장되는 사항은 생성자 주입방법
+스프링 뜬 다음에는 바꿀 여지가 없기 때문! Sett는 노출때문에 좋지 않은 방법
+**결론 : 생성자 주입을 권장!!**
