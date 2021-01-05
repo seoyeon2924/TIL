@@ -169,3 +169,39 @@ public class SpringConfig {
 @Autowired 는 **필드주입방법이 있고 생성자 주입 방법, Setter주입**이 있는데 권장되는 사항은 생성자 주입방법
 스프링 뜬 다음에는 바꿀 여지가 없기 때문! Sett는 노출때문에 좋지 않은 방법
 **결론 : 생성자 주입을 권장!!**
+
+---
+
+#HomeController
+
+- @GetMapping("/") 이 있으면 여기를 먼저 들어감
+- 없었을 때는 알아서 index.html을 찾아감 (Spring Boot 제공)
+
+---
+
+#회원등록 기능
+###Form
+form은 인풋타입은 text, name이 서버로 넘어갈때 key가 됨!
+등록을 누르면 포스트 방시그로 넘어가는데
+
+포스트 매핑은 폼에 넣어서 전달할때 포스트, 겟은
+name을 보고 알아서, 그 객체의 name을 넣어줌 ..? 스프링이 알아서 setname을 통해서 값을 넣어줌
+
+---
+
+#조회기능 구현
+###Model
+import org.springframework.ui.Model;
+Model은 Controller에서 data를 담아서 view로 던질 때 사용한다.
+
+---
+
+#MVC 정리
+###View -> Controller 호춯
+
+1. GET
+2. POST (Form에 Data를 담아서 던질 수 있음)
+
+###Controller -> View 호출
+
+1. Model에 Data를 담아서 view에 뿌려줌!
