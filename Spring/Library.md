@@ -20,7 +20,9 @@ gradle이 의존성 관리를 해주기 때문에, Library를 알아서 땡겨 �
 
 - 요즘은 Junit5
 - mockito
-- assertJ
+- assertJ -브랜치 하나 더땄지롱?
+  asdasd
+  asdsd
 
 ---
 
@@ -31,7 +33,10 @@ gradle이 의존성 관리를 해주기 때문에, Library를 알아서 땡겨 �
 #Thymeleaf 템플릿 엔진
 
 - freeMarker
+
 - Thymeleaf등의 템플릿 엔진을 제공함
+- ㅌㅔ스트
+- 내가 추가했다 새끼들아
 
 ---
 
