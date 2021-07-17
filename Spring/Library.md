@@ -20,7 +20,9 @@ gradle이 의존성 관리를 해주기 때문에, Library를 알아서 땡겨 �
 
 - 요즘은 Junit5
 - mockito
-- assertJ
+- assertJ -브랜치 하나 더땄지롱?
+  asdasd
+  asdsd
 
 ---
 
@@ -31,11 +33,15 @@ gradle이 의존성 관리를 해주기 때문에, Library를 알아서 땡겨 �
 #Thymeleaf 템플릿 엔진
 
 - freeMarker
+
 - Thymeleaf등의 템플릿 엔진을 제공함
+- ㅌㅔ스트
+- 내가 추가했다 새끼들아
 
 ---
 
-#Return Hello 하면?  
+#Return Hello 하면?
+
 return hello 하면 알아서 hello.html을 찾아감.
 -> 컨트롤러에서 리턴값으로 문자를 반환하면 뷰 리졸버가 화면을 찾아서 처리한다!
 
